@@ -4,6 +4,13 @@ from django.contrib.auth import login, logout
 from .forms import RegisterForm  
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
+import qrcode
+from django.core.files.base import ContentFile
+from io import BytesIO
+from .models import QRCode
+from .forms import QRCodeForm
+import uuid  # Додай імпорт uuid
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request, 'main/index.html')
@@ -39,3 +46,30 @@ def register_user(request):
     else:
         form = RegisterForm()
     return render(request, 'main/register.html', {'form': form})
+
+def create_qr_code(request):
+    if request.method == 'POST':
+        form = QRCodeForm(request.POST)
+        if form.is_valid():
+            qr_instance = form.save(commit=False)
+            qr_instance.user = request.user
+
+            # Генерація QR-коду
+            qr = qrcode.make(qr_instance.data)
+            buffer = BytesIO()
+            qr.save(buffer, format='PNG')
+
+            # Генерація унікальної назви файлу
+            unique_filename = f"{uuid.uuid4().hex}.png"
+            qr_instance.image.save(unique_filename, ContentFile(buffer.getvalue()), save=False)
+
+            qr_instance.save()
+            return redirect('index')  # Перенаправлення після створення
+    else:
+        form = QRCodeForm()
+    return render(request, 'main/create_qr_code.html', {'form': form})
+
+@login_required
+def my_qrs(request):
+    qrcodes = QRCode.objects.filter(user=request.user)
+    return render(request, 'main/my_qrs.html', {'qrcodes': qrcodes})

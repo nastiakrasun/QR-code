@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.forms import TextInput, PasswordInput
+from .models import QRCode
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -19,3 +20,18 @@ class LoginForm(AuthenticationForm):
         'class': 'form-control',
         'placeholder': 'Password'
     }))
+
+class QRCodeForm(forms.ModelForm):
+    class Meta:
+        model = QRCode
+        fields = ['data', 'description']
+        widgets = {
+            'data': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter data for QR code'
+            }),
+            'description': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter description (optional)'
+            }),
+        }

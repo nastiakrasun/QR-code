@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+<div class="container">
+  <h2>My QR Codes</h2>
+  <ul>
+    {% for qr in qrcodes %}
+      <li>
+        <p>Data: {{ qr.data }}</p>
+        <p>Description: {{ qr.description }}</p>
+        <img src="{{ qr.image.url }}" alt="QR Code" style="max-width: 200px;">
+      </li>
+    {% empty %}
+      <p>You have no QR codes yet.</p>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
