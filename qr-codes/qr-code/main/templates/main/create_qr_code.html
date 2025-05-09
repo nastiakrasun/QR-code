@@ -1,12 +1,12 @@
 {% extends 'main/layout.html' %}
 
 {% block content %}
-<div class="container">
-  <h2>Create QR Code</h2>
-  <form method="post">
+<div class="qr-create-container">
+  <h2 class="qr-create-title">Create QR Code</h2>
+  <form method="post" class="qr-create-form">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Generate QR Code</button>
+    <button type="submit" class="btn qr-create-btn">Generate QR Code</button>
   </form>
 </div>
 {% endblock %}

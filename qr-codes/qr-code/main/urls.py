@@ -9,5 +9,6 @@ urlpatterns = [
     path('logout', views.logout_user, name='logout'),
     path('register', views.register_user, name='register'),
     path('create_qr', views.create_qr_code, name='create_qr'),
+    path('delete_qr/<int:qr_id>/', views.delete_qr_code, name='delete_qr'),
     path('my_qrs', views.my_qrs, name='my_qrs'),
 ]

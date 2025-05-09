@@ -1,17 +1,40 @@
 {% extends 'main/layout.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container">
-  <h2>My QR Codes</h2>
-  <ul>
+<div class="qr-container">
+  <div class="qr-header">
+    <h2 class="qr-title">My QR Codes</h2>
+    <a href="{% url 'create_qr' %}" class="btn create-qr-btn">
+      <img src="{% static 'main/images/plus-icon.png' %}" alt="">
+    </a>
+  </div>
+  <ul class="qr-list">
     {% for qr in qrcodes %}
-      <li>
-        <p>Data: {{ qr.data }}</p>
-        <p>Description: {{ qr.description }}</p>
-        <img src="{{ qr.image.url }}" alt="QR Code" style="max-width: 200px;">
+      <li class="qr-item">
+        <div class="qr-data">
+          <p><strong>Data:</strong> {{ qr.data }}</p>
+          <p><strong>Description:</strong> {{ qr.description }}</p>
+        </div>
+        <div class="qr-image">
+          <img src="{{ qr.image.url }}" alt="QR Code">
+        </div>
+        <div class="qr-actions">
+          <!-- Кнопка для завантаження -->
+          <a href="{{ qr.image.url }}" download class="btn qr-action-btn">
+            <img src="{% static 'main/images/download-icon.png' %}" alt="Download">
+          </a>
+          <!-- Кнопка для видалення -->
+          <form method="post" action="{% url 'delete_qr' qr.id %}" class="qr-delete-form">
+            {% csrf_token %}
+            <button type="submit" class="btn qr-action-btn">
+              <img src="{% static 'main/images/delete-icon.png' %}" alt="Delete">
+            </button>
+          </form>
+        </div>
       </li>
     {% empty %}
-      <p>You have no QR codes yet.</p>
+      <p class="qr-empty">You have no QR codes yet.</p>
     {% endfor %}
   </ul>
 </div>

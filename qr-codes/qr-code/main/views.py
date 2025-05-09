@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import login, logout
 from .forms import RegisterForm  
@@ -64,7 +64,7 @@ def create_qr_code(request):
             qr_instance.image.save(unique_filename, ContentFile(buffer.getvalue()), save=False)
 
             qr_instance.save()
-            return redirect('index')  # Перенаправлення після створення
+            return redirect('my_qrs')  # Перенаправлення після створення
     else:
         form = QRCodeForm()
     return render(request, 'main/create_qr_code.html', {'form': form})
@@ -73,3 +73,9 @@ def create_qr_code(request):
 def my_qrs(request):
     qrcodes = QRCode.objects.filter(user=request.user)
     return render(request, 'main/my_qrs.html', {'qrcodes': qrcodes})
+
+@login_required
+def delete_qr_code(request, qr_id):
+    qr = get_object_or_404(QRCode, id=qr_id, user=request.user)
+    qr.delete()
+    return redirect('my_qrs')
