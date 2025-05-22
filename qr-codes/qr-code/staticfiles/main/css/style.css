@@ -846,3 +846,289 @@ a:focus {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
+.auth-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 80vh !important;
+  background-color: #f9fafa !important;
+  padding: 50px;
+}
+
+.auth-box {
+  background: #ffffff !important;
+  padding: 30px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+  width: 100% !important;
+  max-width: 400px !important;
+}
+
+.auth-title {
+  font-size: 24px !important;
+  font-weight: bold !important;
+  color: #333 !important;
+  text-align: center !important;
+  margin-bottom: 20px !important;
+}
+
+.auth-form {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.auth-form input {
+  width: 100% !important;
+  padding: 10px !important;
+  margin-bottom: 15px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 5px !important;
+  font-size: 14px !important;
+}
+
+.auth-btn {
+  background-color: #6bb7be !important;
+  color: #fff !important;
+  padding: 10px !important;
+  border: none !important;
+  border-radius: 5px !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.auth-btn:hover {
+  background-color: #5aa3a9 !important;
+}
+
+.auth-footer {
+  text-align: center !important;
+  margin-top: 15px !important;
+  font-size: 14px !important;
+}
+
+.auth-footer a {
+  color: #6bb7be !important;
+  text-decoration: none !important;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline !important;
+}
+
+/* Контейнер для сторінки QR-кодів */
+.qr-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок сторінки */
+.qr-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Список QR-кодів */
+.qr-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Елемент списку */
+.qr-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Вирівнювання по верхньому краю */
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  flex-wrap: wrap; /* Дозволяє перенос елементів */
+}
+
+.qr-item:last-child {
+  border-bottom: none;
+}
+
+/* Дані QR-коду */
+.qr-data {
+  flex: 1;
+  margin-right: 20px;
+  word-wrap: break-word; /* Перенос довгих слів */
+}
+
+.qr-data p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+  max-width: 300px; /* Фіксована ширина */
+  white-space: nowrap; /* Текст в один рядок */
+  overflow: hidden; /* Приховує текст, що не влазить */
+  text-overflow: ellipsis; /* Додає три крапки (...) для обрізаного тексту */
+  position: relative;
+}
+
+/* Показати весь текст при наведенні */
+.qr-data p:hover {
+  white-space: normal; /* Дозволяє тексту переноситися */
+  overflow: visible; /* Показує весь текст */
+  background-color: #f9f9f9; /* Додає фон для зручності читання */
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  z-index: 10;
+  position: absolute; /* Виводить текст поверх інших елементів */
+}
+
+/* Зображення QR-коду */
+.qr-image {
+  flex-shrink: 0;
+  text-align: center; /* Центрування зображення */
+  margin-bottom: 10px; /* Відступ між зображенням і кнопками */
+}
+
+.qr-image img {
+  max-width: 150px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Повідомлення про відсутність QR-кодів */
+.qr-empty {
+  text-align: center;
+  font-size: 18px;
+  color: #999;
+  margin-top: 20px;
+}
+
+/* Кнопка для створення нового QR-коду */
+.create-qr-btn {
+  display: inline-block;
+  width: 40px; /* Розмір кнопки */
+  height: 40px;
+  background-color: #000; /* Чорний фон */
+  border-radius: 50%; /* Робить кнопку круглою */
+  position: absolute; /* Розташування у правій частині */
+  right: 20px; /* Відступ від правого краю */
+  top: 10px; /* Відступ від верхнього краю */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Додає тінь */
+}
+
+.create-qr-btn:hover {
+  background-color: #333; /* Світліший чорний при наведенні */
+  transform: scale(1.1); /* Легке збільшення при наведенні */
+}
+
+.create-qr-btn img {
+  width: 20px; /* Розмір іконки */
+  height: 20px;
+  filter: invert(1); /* Робить іконку білою */
+}
+
+.qr-header {
+  position: relative; /* Для позиціонування кнопки всередині заголовка */
+  margin-bottom: 20px;
+}
+
+/* Контейнер сторінки створення QR-коду */
+.qr-create-container {
+  max-width: 500px; /* Зменшена ширина */
+  margin: 50px auto;
+  padding: 60px; /* Збільшена висота через padding */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок сторінки */
+.qr-create-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Форма створення QR-коду */
+.qr-create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Поля введення у формі */
+.qr-create-form input,
+.qr-create-form textarea {
+  width: 100%;
+  padding: 15px; /* Збільшена висота полів */
+  font-size: 16px; /* Збільшений розмір тексту */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.qr-create-form input::placeholder,
+.qr-create-form textarea::placeholder {
+  font-size: 14px; /* Розмір тексту плейсхолдера */
+  color: #aaa;
+}
+
+/* Кнопка створення QR-коду */
+.qr-create-btn {
+  background-color: #6bb7be;
+  color: #fff;
+  padding: 15px 20px; /* Збільшена висота кнопки */
+  border: none;
+  border-radius: 5px;
+  font-size: 18px; /* Збільшений розмір тексту кнопки */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 60%; /* Ширина кнопки */
+  margin: 0 auto; /* Центрування кнопки */
+}
+
+.qr-create-btn:hover {
+  background-color: #5aa3a9;
+}
+
+/* Дії з QR-кодами */
+.qr-actions {
+  display: flex;
+  justify-content: center; /* Центрування кнопок */
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.qr-action-btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.qr-action-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.qr-action-btn img {
+  width: 16px;
+  height: 16px;
+}
