@@ -780,7 +780,7 @@ a:focus {
 
 /* Контейнер для сторінки QR-кодів */
 .qr-container {
-  max-width: 800px;
+  min-width: 800px;
   margin: 50px auto;
   padding: 20px;
   background-color: #ffffff;
@@ -904,7 +904,7 @@ a:focus {
 
 /* Контейнер сторінки створення QR-коду */
 .qr-create-container {
-  max-width: 500px; /* Зменшена ширина */
+  min-width: 500px; /* Зменшена ширина */
   margin: 50px auto;
   padding: 60px; /* Збільшена висота через padding */
   background-color: #ffffff;
@@ -992,4 +992,68 @@ a:focus {
 .qr-action-btn img {
   width: 16px;
   height: 16px;
+}
+
+/* Нові стилі для сторінки "Про нас" */
+.about-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  background: #f7f9fa;
+  padding: 50px;
+}
+
+.about-content-box {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.about-subtitle {
+  font-size: 1.2rem;
+  color: #6bb7be;
+  margin-bottom: 20px;
+}
+
+.about-description {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.about-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.about-features li {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 8px;
+  text-align: left;
+  padding-left: 1.2em;
+  position: relative;
+}
+
+.about-contact {
+  font-size: 1rem;
+  color: #555;
+}
+
+.about-contact a {
+  color: #6bb7be;
+  text-decoration: underline;
 }

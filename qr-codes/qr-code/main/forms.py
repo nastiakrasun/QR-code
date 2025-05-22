@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.forms import TextInput, PasswordInput
-from .models import QRCode
+from .models import QRCode, ContactMessage
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -34,4 +34,14 @@ class QRCodeForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Enter description (optional)'
             }),
+        }
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = ContactMessage
+        fields = ['name', 'email', 'message']
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Your Name', 'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Your Email', 'class': 'form-control'}),
+            'message': forms.Textarea(attrs={'placeholder': 'Your Message', 'class': 'form-control', 'rows': 4}),
         }

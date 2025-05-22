@@ -11,6 +11,7 @@ from .models import QRCode
 from .forms import QRCodeForm
 import uuid  # Додай імпорт uuid
 from django.contrib.auth.decorators import login_required
+from .forms import ContactForm
 
 def index(request):
     return render(request, 'main/index.html')
@@ -19,7 +20,15 @@ def about(request):
     return render(request, 'main/about.html')
 
 def contacts(request):
-    return render(request, 'main/contacts.html')
+    success = False
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            success = True
+    else:
+        form = ContactForm()
+    return render(request, 'main/contacts.html', {'form': form, 'success': success})
 
 def logout_user(request):
     logout(request)

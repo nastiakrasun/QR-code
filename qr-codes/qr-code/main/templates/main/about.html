@@ -2,7 +2,32 @@
 
 {% block content %}
 
-<h1>Про нас!!!</h1>
-<p>Ваше зручне рішення для генерації та збереження QR-кодів.</p>
+<div class="about-page-container">
+  <div class="about-content-box">
+    <h1 class="about-title">About Us</h1>
+    <p class="about-subtitle">
+      Your all-in-one platform for creating, saving, and managing QR codes.
+    </p>
+    <p class="about-description">
+      Welcome to our QR code service! We are passionate about making information sharing simple, fast, and secure for everyone. Whether you are a business owner, educator, student, or just someone who wants to quickly generate a QR code, our platform is designed to meet your needs.
+    </p>
+    <p class="about-description">
+      With our user-friendly interface, you can generate QR codes for links, contacts, Wi-Fi access, plain text, and much more. All your QR codes are safely stored in your personal account, so you can access, download, or delete them at any time.
+    </p>
+    <ul class="about-features">
+      <li>✔️ <strong>Fast and free QR code generation:</strong> Instantly create QR codes for any purpose without hidden fees.</li>
+      <li>✔️ <strong>Secure personal storage:</strong> All your QR codes are saved in your account and available whenever you need them.</li>
+      <li>✔️ <strong>Easy download and management:</strong> Download your QR codes in one click or remove those you no longer need.</li>
+      <li>✔️ <strong>Modern, intuitive design:</strong> Enjoy a clean and simple interface that works on any device.</li>
+      <li>✔️ <strong>Privacy first:</strong> Your data is never shared with third parties.</li>
+    </ul>
+    <p class="about-description">
+      We are constantly working to improve our service and add new features based on your feedback. Our goal is to make QR code management as effortless as possible for everyone.
+    </p>
+    <p class="about-contact">
+      Have questions, suggestions, or need help? <a href="{% url 'contacts' %}">Contact us</a> — our team is always ready to assist you!
+    </p>
+  </div>
+</div>
 
 {% endblock %}

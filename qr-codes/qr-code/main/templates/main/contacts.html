@@ -2,7 +2,37 @@
 
 {% block content %}
 
-<h1>Наші контакти!!!</h1>
-<p>Ваше зручне рішення для генерації та збереження QR-кодів.</p>
+<div class="about-page-container">
+  <div class="about-content-box">
+    <h1 class="about-title">Contact Us</h1>
+    <p class="about-subtitle">
+      We are always happy to hear from you!
+    </p>
+    <p class="about-description">
+      If you have any questions, suggestions, or need assistance with our QR code service, please feel free to reach out. Our team will respond as soon as possible.
+    </p>
+    <ul class="about-features">
+      <li>
+        <strong>Email:</strong>
+        <a href="mailto:nastiakrasyn@gmail.com">nastiakrasyn@gmail.com</a>
+      </li>
+      <li>
+        <strong>Phone:</strong>
+        <a href="tel:+380986018579">+38 (098) 601-8579</a>
+      </li>
+    </ul>
+    <p class="about-description">
+      You can also use the feedback form below to send us a message directly.
+    </p>
+    {% if success %}
+      <div style="color: green; margin-bottom: 15px;">Thank you for your message! We will get back to you soon.</div>
+    {% endif %}
+    <form method="post" class="contact-form" style="margin-top: 10px;">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn qr-create-btn">Send Message</button>
+    </form>
+  </div>
+</div>
 
 {% endblock %}
